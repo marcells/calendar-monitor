@@ -1,0 +1,17 @@
+{
+  "name": "calendar-monitor",
+  "version": "0.0.1",
+  "description": "A Team Calendar Monitor written in Node.js, which supports several calendar sources and can be extended easily.",
+  "author": "Marcell Spies <marcells@gmx.de>",
+  "contributors": [
+    {
+      "name": "Marcell Spies",
+      "email": "marcells@gmx.de"
+    }],
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "express": "4.16.2"
+  }
+}
