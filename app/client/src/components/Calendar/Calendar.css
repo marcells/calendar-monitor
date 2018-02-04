@@ -36,9 +36,22 @@
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
-  background-color: #444;
   border-radius: 5px;
   padding: 10px;
+}
+
+.Calendar-day-is-weekend {
+  background-color: #AAA;
+}
+
+.Calendar-day-is-workday {
+  background-color: #888;
+}
+
+.Calendar-day-is-today {
+  border-style: solid;
+  border-color: orange;
+  border-width: 2px;
 }
 
 .Calendar-day-column {

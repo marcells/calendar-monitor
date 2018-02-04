@@ -33,8 +33,17 @@ function CalendarDay(props) {
     ? { gridColumn : new Date(props.year, props.month, 1).getDay() + 1 }
     : { };
 
+  const isWeekend = new Date(props.year, props.month, props.day).getDay() == 0;
+  const isToday = moment(new Date(props.year, props.month, props.day)).isSame(new Date(), 'day');
+
+  const calendarDayClassNames = [
+    'Calendar-day',
+    isWeekend ? 'Calendar-day-is-weekend': 'Calendar-day-is-workday',
+    isToday ? 'Calendar-day-is-today' : ''
+  ].join(' ');
+
   return (
-    <div className="Calendar-day" style={gridColumnStyle}>
+    <div className={calendarDayClassNames} style={gridColumnStyle}>
       <div className="Calendar-day-column">{props.day}</div>
       
       <div className="Calendar-day-events">
