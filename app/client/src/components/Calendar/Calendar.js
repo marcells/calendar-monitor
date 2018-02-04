@@ -1,11 +1,12 @@
 import React from 'react';
+import moment from 'moment';
 import './Calendar.css';
 
 function Calendar(props) {
   return (
       <div className="Calendar">
         <CalendarHeader date={props.date} />
-        <CalendarDays date={props.date} />
+        <CalendarDays date={props.date} events={props.events} />
       </div>
     );
 }
@@ -13,12 +14,36 @@ function Calendar(props) {
 function CalendarDays(props) {
   const lastDayOfMonth = new Date(props.date.year, props.date.month + 1, 0).getDate();
   const days = Array(lastDayOfMonth).fill().map((e,i)=> i + 1);
+  
+  const eventsForDay = day => {
+    const dateForDay = moment(new Date(props.date.year, props.date.month, day));
+
+    return props.events.filter(x => dateForDay.isBetween(x.from, x.to, 'day', '[]'));
+  }
 
   return (
       <div className="Calendar-days">
-        { days.map(x => <CalendarDay key={x} year={props.date.year} month={props.date.month} day={x} />) }
+        { days.map(x => <CalendarDay key={x} year={props.date.year} month={props.date.month} day={x} events={eventsForDay(x)} />) }
       </div>
     );
+}
+
+function CalendarDay(props) {
+  const gridColumnStyle = (props.day === 1) 
+    ? { gridColumn : new Date(props.year, props.month, 1).getDay() + 1 }
+    : { };
+
+  return (
+    <div className="Calendar-day" style={gridColumnStyle}>
+      <div className="Calendar-day-column">{props.day}</div>
+      
+      <div className="Calendar-day-events">
+        <ul>
+          {props.events.map(x => <li className="Calendar-day-event">{x.title}</li>)}
+        </ul>
+      </div>
+    </div>
+  );
 }
 
 function CalendarHeader(props) {
@@ -31,20 +56,8 @@ function CalendarHeader(props) {
         { monthNames[props.date.month] }
       </div>
       <div className="Calendar-header-weekdays">
-        { weekDayNames.map(x => <div>{ x }</div>)}
+        {weekDayNames.map(x => <div>{x}</div>)}
       </div>
-    </div>
-  );
-}
-
-function CalendarDay(props) {
-  const gridColumnStyle = (props.day === 1) 
-    ? { gridColumn : new Date(props.year, props.month, 1).getDay() + 1 }
-    : { };
-
-  return (
-    <div className="Calendar-day" style={gridColumnStyle}>
-      { props.day }
     </div>
   );
 }

@@ -4,6 +4,8 @@
   border-radius: 5px;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
+  padding: 10px;
+  margin: 5px;
 }
 
 .Calendar-header {
@@ -32,13 +34,20 @@
 
 .Calendar-day {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
   background-color: #444;
-  color: #fff;
   border-radius: 5px;
-  padding: 20px;
-  font-size: 120%;
-  align-items: end;
-  justify-items: end;
+  padding: 10px;
+}
+
+.Calendar-day-column {
+  color: #fff;
+}
+
+.Calendar-day-events {
+}
+
+.Calendar-day-event {
+  color: black;
 }

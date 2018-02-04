@@ -7,8 +7,8 @@ function Main(props) {
   return (
     <div className="Content">
       <div className="Calendars">
-        <Calendar date={props.calendars[0]} />
-        <Calendar date={props.calendars[1]} />
+        <Calendar date={props.calendars[0]} events={props.events} />
+        <Calendar date={props.calendars[1]} events={props.events} />
       </div>
     
       <Upcoming />
