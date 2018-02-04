@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Calendar from './components/Calendar/Calendar';
+import Main from './views/Main/Main';
 import './App.css';
 
 class App extends Component {
@@ -9,16 +9,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="Content">
-          <div className="Calendars">
-            <Calendar date={calendar1} />
-            <Calendar date={calendar2} />
-          </div>
-
-          <div className="Upcoming">
-            Upcoming Events
-          </div>
-        </div>
+        <Main calendars={ [calendar1, calendar2] }/>
       </div>
     );
   }

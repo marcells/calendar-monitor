@@ -1,0 +1,10 @@
+.Content {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  height: 100%;
+}
+  
+.Calendars {
+  display: grid;
+}
