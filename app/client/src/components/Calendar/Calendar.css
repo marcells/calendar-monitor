@@ -1,0 +1,44 @@
+.Calendar {
+  display: grid;
+  background-color: #CCC;
+  border-radius: 5px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+.Calendar-header {
+  display: grid;
+}
+
+.Calendar-header-month {
+  display: grid;
+  font-size: 200%
+}
+
+.Calendar-header-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 20px;
+  font-size: 150%
+}
+
+.Calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 10px;
+  color: #444;
+}
+
+.Calendar-day {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 120%;
+  align-items: end;
+  justify-items: end;
+}
