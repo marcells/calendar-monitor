@@ -1,6 +1,6 @@
 .Calendar {
   display: grid;
-  background-color: #CCC;
+  background-color: var(--pane-background-color);
   border-radius: 5px;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
@@ -29,7 +29,6 @@
   grid-template-columns: 5fr 10fr 10fr 10fr 10fr 10fr 5fr;
   grid-auto-rows: 1fr;
   grid-gap: 10px;
-  color: #444;
 }
 
 .Calendar-day {
@@ -50,15 +49,18 @@
 
 .Calendar-day-is-today {
   border-style: solid;
-  border-color: orange;
+  border-color: var(--today-color);
   border-width: 2px;
 }
 
 .Calendar-day-column {
   color: #fff;
+  text-align: left;
+  width: 20px;
 }
 
 .Calendar-day-events {
+  background-color: red;
 }
 
 .Calendar-day-event {

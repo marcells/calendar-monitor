@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Barlow+Condensed');
 
+:root {
+  --pane-background-color: #CCC;
+  --today-color: orange;
+}
+
 .App {
   text-align: center;
   height: 100vh;
