@@ -4,6 +4,11 @@
   margin: 5px;
 }
 
+.Upcoming-header {
+  font-weight: bold;
+  font-size: 200%;
+}
+
 .Upcoming-event {
   border: 1px solid black;
   border-radius: 2px;

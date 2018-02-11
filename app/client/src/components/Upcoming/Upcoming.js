@@ -5,7 +5,7 @@ import './Upcoming.css';
 function Upcoming(props) {
   return (
     <div className="Upcoming">
-      <h1>Upcoming Events</h1>
+      <div className="Upcoming-header">Upcoming Events</div>
 
       <div>
         { props.events.map(x => <UpcomingEvent key={x} event={x} />) }

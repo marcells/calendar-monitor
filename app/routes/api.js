@@ -21,7 +21,11 @@ router.get('/calendar/:year/:month', (req, res, next) => {
 });
 
 router.get('/upcoming', (req, res, next) => {
-  res.send({ events : data });
+  const events = [...data]
+    .sort((x, y) => x.from - y.from)
+    .filter(x => moment(x.from) > moment());
+
+  res.send({ events : events });
 });
 
 module.exports = router;
