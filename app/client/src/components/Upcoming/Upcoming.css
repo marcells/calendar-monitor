@@ -1,6 +1,6 @@
 .Upcoming {
   background-color: var(--pane-background-color);
-  border-radius: 5px;
+  border-radius: var(--pane-border-radius);
   margin: 5px;
 }
 

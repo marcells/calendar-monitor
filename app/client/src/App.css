@@ -2,6 +2,7 @@
 
 :root {
   --pane-background-color: #CCC;
+  --pane-border-radius: 5px;
   --today-color: orange;
 }
 

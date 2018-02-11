@@ -1,7 +1,7 @@
 .Calendar {
   display: grid;
   background-color: var(--pane-background-color);
-  border-radius: 5px;
+  border-radius: var(--pane-border-radius);
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   padding: 10px;
@@ -59,10 +59,19 @@
   width: 20px;
 }
 
-.Calendar-day-events {
-  background-color: red;
+.Calendar-day-event {
+  border: 1px solid black;
+  margin: 1px;
+  text-align: left;
+  border-radius: 2px;
+  background-color: black;
+  color: white;
 }
 
-.Calendar-day-event {
-  color: black;
+.Calendar-day-event-from {
+  padding-right: 5px;
+}
+
+.Calendar-day-event-title {
+  font-weight: bold;
 }

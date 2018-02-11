@@ -46,10 +46,11 @@ function CalendarDay(props) {
     <div className={calendarDayClassNames} style={gridColumnStyle}>
       <div className="Calendar-day-column">{props.day}</div>
       
-      <div className="Calendar-day-events">
-        <ul>
-          {props.events.map(x => <li className="Calendar-day-event">{x.title}</li>)}
-        </ul>
+      <div>
+        { props.events.map(x => <div className="Calendar-day-event">
+                                  <span className="Calendar-day-event-from">{moment(x.from).format('HH:mm')}</span>
+                                  <span className="Calendar-day-event-title">{x.title}</span>
+                                </div>) }
       </div>
     </div>
   );
