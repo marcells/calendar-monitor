@@ -33,7 +33,7 @@ function CalendarDay(props) {
     ? { gridColumn : new Date(props.year, props.month, 1).getDay() + 1 }
     : { };
 
-  const isWeekend = new Date(props.year, props.month, props.day).getDay() == 0;
+  const isWeekend = new Date(props.year, props.month, props.day).getDay() == 0 || new Date(props.year, props.month, props.day).getDay() == 6;
   const isToday = moment(new Date(props.year, props.month, props.day)).isSame(new Date(), 'day');
 
   const calendarDayClassNames = [

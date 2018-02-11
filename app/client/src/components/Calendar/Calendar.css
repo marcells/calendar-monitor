@@ -19,14 +19,14 @@
 
 .Calendar-header-weekdays {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: 5fr 10fr 10fr 10fr 10fr 10fr 5fr;
   grid-gap: 20px;
   font-size: 150%
 }
 
 .Calendar-days {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: 5fr 10fr 10fr 10fr 10fr 10fr 5fr;
   grid-auto-rows: 1fr;
   grid-gap: 10px;
   color: #444;
