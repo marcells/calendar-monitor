@@ -41,7 +41,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Main calendars={[calendar1, calendar2]} events={events}/>
+        <Main calendars={[calendar1, calendar2]} events={events} upcoming={events} />
       </div>
     );
   }

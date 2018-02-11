@@ -11,7 +11,7 @@ function Main(props) {
         <Calendar date={props.calendars[1]} events={props.events} />
       </div>
     
-      <Upcoming />
+      <Upcoming events={props.upcoming} />
     </div>
   );
 }
