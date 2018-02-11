@@ -59,6 +59,11 @@
   width: 20px;
 }
 
+.Calendar-day-events {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .Calendar-day-event {
   border: 1px solid black;
   margin: 1px;
