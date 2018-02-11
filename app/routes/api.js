@@ -17,7 +17,13 @@ router.get('/calendar/:year/:month', (req, res, next) => {
   const year = parseInt(req.params.year);
   const month = parseInt(req.params.month);
 
-  res.send({ events : data });
+  const dateForDay = moment(new Date(year, month, 1));
+  const eventsForMonth = data.filter(x => dateForDay.isBetween(x.from, x.to, 'month', '[]'));
+
+  res.send({
+    date: { year: year, month: month },
+    events : eventsForMonth
+  });
 });
 
 router.get('/upcoming', (req, res, next) => {
