@@ -8,7 +8,7 @@ class App extends Component {
     super(props);
     
     this.state = { 
-      calendars: [ { month: 1, year: 2018 }, { month: 2, year: 2018 } ], 
+      calendars: [], 
       events: [],
       upcoming: []
     };
@@ -16,12 +16,10 @@ class App extends Component {
 
   async componentDidMount() {
     const calendars = await axios.get('/api/nextCalendars/2');
-    const events = await axios.get('/api/calendar/0/0');
     const upcoming = await axios.get('/api/upcoming');
     
     this.setState({ 
       calendars: calendars.data.calendars,
-      events: events.data.events,
       upcoming: upcoming.data.events 
     });
   }
@@ -29,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Main calendars={this.state.calendars} events={this.state.events} upcoming={this.state.upcoming} />
+        <Main calendars={this.state.calendars} upcoming={this.state.upcoming} />
       </div>
     );
   }

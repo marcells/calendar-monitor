@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
+import axios from 'axios';
 import './Calendar.css';
 
-function Calendar(props) {
-  return (
-      <div className="Calendar">
-        <CalendarHeader date={props.date} />
-        <CalendarDays date={props.date} events={props.events} />
-      </div>
-    );
+class Calendar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { events : [] };
+  }
+
+  async componentDidMount() {
+    const events = await axios.get(`/api/calendar/${this.props.date.year}/${this.props.date.month}`);
+
+    this.setState({ events: events.data.events });
+  }
+
+  render() {
+    return (
+        <div className="Calendar">
+          <CalendarHeader date={this.props.date} />
+          <CalendarDays date={this.props.date} events={this.state.events} />
+        </div>
+      );
+  }
 }
   
 function CalendarDays(props) {
@@ -33,7 +48,7 @@ function CalendarDay(props) {
     ? { gridColumn : new Date(props.year, props.month, 1).getDay() + 1 }
     : { };
 
-  const isWeekend = new Date(props.year, props.month, props.day).getDay() == 0 || new Date(props.year, props.month, props.day).getDay() == 6;
+  const isWeekend = new Date(props.year, props.month, props.day).getDay() === 0 || new Date(props.year, props.month, props.day).getDay() === 6;
   const isToday = moment(new Date(props.year, props.month, props.day)).isSame(new Date(), 'day');
 
   const calendarDayClassNames = [
@@ -47,7 +62,7 @@ function CalendarDay(props) {
       <div className="Calendar-day-column">{props.day}</div>
       
       <div className="Calendar-day-events">
-        { props.events.map(x => <div className="Calendar-day-event">
+        { props.events.map(x => <div key={x.id} className="Calendar-day-event">
                                   <span className="Calendar-day-event-from">{moment(x.from).format('HH:mm')}</span>
                                   <span className="Calendar-day-event-title">{x.title}</span>
                                 </div>) }
@@ -66,7 +81,7 @@ function CalendarHeader(props) {
         { monthNames[props.date.month] }
       </div>
       <div className="Calendar-header-weekdays">
-        {weekDayNames.map(x => <div>{x}</div>)}
+        {weekDayNames.map(x => <div key={x}>{x}</div>)}
       </div>
     </div>
   );

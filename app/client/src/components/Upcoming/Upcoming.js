@@ -8,7 +8,7 @@ function Upcoming(props) {
       <div className="Upcoming-header">Upcoming Events</div>
 
       <div>
-        { props.events.map(x => <UpcomingEvent key={x} event={x} />) }
+        { props.events.map(x => <UpcomingEvent key={x.id} event={x} />) }
       </div>
     </div>
   );
