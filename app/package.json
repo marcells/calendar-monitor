@@ -7,11 +7,13 @@
     {
       "name": "Marcell Spies",
       "email": "marcells@gmx.de"
-    }],
+    }
+  ],
   "scripts": {
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "express": "4.16.2"
+    "express": "4.16.2",
+    "moment": "^2.20.1"
   }
 }
