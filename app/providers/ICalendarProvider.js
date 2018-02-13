@@ -1,5 +1,5 @@
 const axios = require('axios');
-const iCal = require('iCal.js');
+const iCal = require('ical.js');
 
 class ICalendarProvider {
   constructor (calendarUrl) {
