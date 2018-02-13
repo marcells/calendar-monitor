@@ -13,12 +13,12 @@ router.get('/nextCalendars/:numberOfCalendars', (req, res, next) => {
   res.send({ calendars : calendars });
 });
 
-router.get('/calendar/:year/:month', (req, res, next) => {
+router.get('/calendar/:year/:month', async (req, res, next) => {
   const year = parseInt(req.params.year);
   const month = parseInt(req.params.month);
 
   const dateForDay = moment(new Date(year, month, 1));
-  const eventsForMonth = data.filter(x => dateForDay.isBetween(x.from, x.to, 'month', '[]'));
+  const eventsForMonth = (await data.getEvents()).filter(x => dateForDay.isBetween(x.from, x.to, 'month', '[]'));
 
   res.send({
     date: { year: year, month: month },
@@ -26,12 +26,18 @@ router.get('/calendar/:year/:month', (req, res, next) => {
   });
 });
 
-router.get('/upcoming', (req, res, next) => {
-  const events = [...data]
+router.get('/upcoming', async (req, res, next) => {
+  const events = [...(await data.getEvents())]
     .sort((x, y) => x.from - y.from)
     .filter(x => moment(x.from) > moment());
 
   res.send({ events : events });
+});
+
+router.get('/events', async (req, res, next) => {
+  const events = await data.getEvents();
+
+  res.send(events);
 });
 
 module.exports = router;

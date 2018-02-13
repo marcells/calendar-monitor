@@ -1,3 +1,6 @@
+const axios = require('axios');
+const iCal = require('ical.js');
+
 const events = [
   {
     id: 1,
@@ -49,4 +52,36 @@ const events = [
   }
 ];
 
-module.exports = events;
+getEventsFromIcal = async function (calendarUrl) {
+  const response = await axios.get(calendarUrl);
+  
+  const jCal = iCal.parse(response.data);
+  const component = new ICAL.Component(jCal);
+  const vevents = component.getAllSubcomponents("vevent");
+
+  const events = vevents
+    .map(vevent => new ICAL.Event(vevent))
+    .map(event => ({
+      id: event.uid,
+      title: event.summary,
+      description: event.description,
+      location: event.location,
+      from: event.startDate.toJSDate(),
+      to: event.endDate.toJSDate()
+  }));
+
+  return events;
+};
+
+getEventsFromMocks = async function () {
+  return new Promise((resolve, reject) => resolve(events));
+}
+
+getEvents = async function () {
+  // return getEventsFromMocks();
+  return getEventsFromIcal('');
+}
+
+module.exports = {
+  getEvents: getEvents
+};
