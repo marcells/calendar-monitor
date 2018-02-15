@@ -10,8 +10,8 @@ getMockProvider = function () {
 }
 
 getEvents = async function () {
-  // const provider = getICalendarProvider('');
-  const provider = getMockProvider();
+  const provider = getICalendarProvider({ calendarUrl: '' });
+  //const provider = getMockProvider();
 
   return await provider.getEvents();
 }
