@@ -2,8 +2,8 @@ const axios = require('axios');
 const iCal = require('ical.js');
 
 class ICalendarProvider {
-  constructor (calendarUrl) {
-    this.calendarUrl = calendarUrl;
+  constructor (configuration) {
+    this.calendarUrl = configuration.calendarUrl;
   }
 
   async getEvents () {

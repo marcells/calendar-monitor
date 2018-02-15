@@ -1,0 +1,26 @@
+{
+  "general": {},
+  "tags": {
+    "common": {
+      "color": "black"
+    }
+  },
+  "calendars": [
+    {
+      "route": "all",
+      "intervalInSeconds": 10,
+      "description": "All Events",
+      "providers": [
+        {
+          "name": "ICalendarProvider",
+          "tags": [
+            "common"
+          ],
+          "configuration": {
+            "calendarUrl": ""
+          }
+        }
+      ]
+    }
+  ]
+}
