@@ -42,7 +42,7 @@ class CalendarCrawler {
         event.tags = providerConfig.tags.map(tag => ({
             name: tag,
             properties: this._tags[tag]
-        }))
+        }));
     }
 }
 
