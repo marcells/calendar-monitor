@@ -10,6 +10,8 @@ const app = express();
 const configuration = readConfiguration();
 const crawlers = new Crawlers(configuration);
 
+crawlers.on('eventsLoaded', () => console.log('events loaded...'));
+
 app.set('port', process.env.PORT || 3001);
 
 app.use(express.static(path.join(__dirname, 'client/build')));

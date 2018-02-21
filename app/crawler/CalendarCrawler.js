@@ -1,12 +1,17 @@
-class CalendarCrawler {
+const EventEmitter = require('events').EventEmitter;
+
+class CalendarCrawler extends EventEmitter {
     constructor(calendar, tags) {
+        super();
+
         this._calendar = calendar;
         this._tags = tags;
         this._timer = null;
         this._allEvents = [];
     }
 
-    start() {
+    async start() {
+        await this._loadEvents();
         this._timer = setInterval(async () => this._loadEvents(), this._calendar.intervalInSeconds * 1000);
     }
 
@@ -30,6 +35,7 @@ class CalendarCrawler {
         }
 
         this._allEvents = allEvents;
+        this.emit('eventsLoaded');
     }
 
     _createProvider(providerConfig) {
