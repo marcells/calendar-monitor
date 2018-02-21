@@ -43,8 +43,6 @@ class CalendarCrawler {
 
         events.forEach(event => this._applyForEvent(providerConfig, event));
 
-        // events.forEach(x => console.log(x.id, x.tags));
-
         return events;
     }
 

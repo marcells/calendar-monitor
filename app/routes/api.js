@@ -19,7 +19,10 @@ function create(crawlers) {
     const month = parseInt(req.params.month);
 
     const dateForDay = moment(new Date(year, month, 1));
-    const eventsForMonth = (crawlers.getFor('all').getEvents()).filter(x => dateForDay.isBetween(x.from, x.to, 'month', '[]'));
+    const eventsForMonth = crawlers
+      .getFor('all')
+      .getEvents()
+      .filter(x => dateForDay.isBetween(x.from, x.to, 'month', '[]'));
 
     res.send({
       date: { year: year, month: month },
@@ -28,7 +31,7 @@ function create(crawlers) {
   });
 
   router.get('/upcoming', (req, res, next) => {
-    const events = [...(crawlers.getFor('all').getEvents())]
+    const events = [...crawlers.getFor('all').getEvents()]
       .sort((x, y) => x.from - y.from)
       .filter(x => moment(x.from) > moment());
 
