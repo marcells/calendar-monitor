@@ -7,7 +7,7 @@ function Main(props) {
   return (
     <div className="Content">
       <div className="Calendars">
-        { props.calendars.map(x => <Calendar key={x.year + x.month} date={x} events={props.events} />) }
+        { props.calendars.map(x => <Calendar key={props.calendar + x.year + x.month} calendar={props.calendar} date={x} events={props.events} />) }
       </div>
     
       <Upcoming events={props.upcoming} />

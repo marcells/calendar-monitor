@@ -14,13 +14,13 @@ function create(crawlers) {
     res.send({ calendars : calendars });
   });
 
-  router.get('/calendar/:year/:month', (req, res, next) => {
+  router.get('/calendar/:calendar/:year/:month', (req, res, next) => {
     const year = parseInt(req.params.year);
     const month = parseInt(req.params.month);
 
     const dateForDay = moment(new Date(year, month, 1));
     const eventsForMonth = crawlers
-      .getFor('all')
+      .getFor(req.params.calendar)
       .getEvents()
       .filter(x => dateForDay.isBetween(x.from, x.to, 'month', '[]'));
 
@@ -30,16 +30,16 @@ function create(crawlers) {
     });
   });
 
-  router.get('/upcoming', (req, res, next) => {
-    const events = [...crawlers.getFor('all').getEvents()]
+  router.get('/upcoming/:calendar', (req, res, next) => {
+    const events = [...crawlers.getFor(req.params.calendar).getEvents()]
       .sort((x, y) => x.from - y.from)
       .filter(x => moment(x.from) > moment());
 
     res.send({ events : events });
   });
 
-  router.get('/events', (req, res, next) => {
-    const events = crawlers.getFor('all').getEvents();
+  router.get('/events/:calendar', (req, res, next) => {
+    const events = crawlers.getFor(req.params.calendar).getEvents();
 
     res.send(events);
   });

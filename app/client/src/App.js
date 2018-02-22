@@ -1,36 +1,27 @@
 import React, { Component } from 'react';
-import Main from './views/Main/Main';
-import axios from 'axios';
+import CalendarApp from './CalendarApp';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = { 
-      calendars: [], 
-      events: [],
-      upcoming: []
-    };
-  }
-
-  async componentDidMount() {
-    const calendars = await axios.get('/api/nextCalendars/2');
-    const upcoming = await axios.get('/api/upcoming');
-    
-    this.setState({ 
-      calendars: calendars.data.calendars,
-      upcoming: upcoming.data.events 
-    });
-  }
-
   render() {
     return (
-      <div className="App">
-        <Main calendars={this.state.calendars} upcoming={this.state.upcoming} />
-      </div>
+      <Router>
+        <div className="App">
+          <Route exact={true} path="/" component={Welcome} />
+          <Route path="/calendar/:calendar" component={CalendarView} />
+        </div>
+      </Router>
     );
   }
 }
+
+const Welcome = () => (
+  <div>Welcome!</div>
+);
+
+const CalendarView = ({ match }) => (
+  <CalendarApp calendar={match.params.calendar} />
+);
 
 export default App;

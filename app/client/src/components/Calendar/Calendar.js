@@ -11,7 +11,7 @@ class Calendar extends Component {
   }
 
   async componentDidMount() {
-    const events = await axios.get(`/api/calendar/${this.props.date.year}/${this.props.date.month}`);
+    const events = await axios.get(`/api/calendar/${this.props.calendar}/${this.props.date.year}/${this.props.date.month}`);
 
     this.setState({ events: events.data.events });
   }
