@@ -1,65 +1,65 @@
 const EventEmitter = require('events').EventEmitter;
 
 class CalendarCrawler extends EventEmitter {
-    constructor(calendar, tags) {
-        super();
+  constructor(calendar, tags) {
+    super();
 
-        this._calendar = calendar;
-        this._tags = tags;
-        this._timer = null;
-        this._allEvents = [];
+    this._calendar = calendar;
+    this._tags = tags;
+    this._timer = null;
+    this._allEvents = [];
+  }
+
+  async start() {
+    await this._loadEvents();
+    this._timer = setInterval(async () => this._loadEvents(), this._calendar.intervalInSeconds * 1000);
+  }
+
+  stop() {
+    clearInterval(this._timer);
+    this._timer = null;
+  }
+
+  getEvents() {
+    return this._allEvents;
+  }
+
+  async _loadEvents() {
+    const allEvents = [];
+
+    for (const providerConfig of this._calendar.providers) {
+      const provider = this._createProvider(providerConfig);
+
+      var eventsForProvider = await this._loadEventsForProvider(providerConfig, provider);
+      eventsForProvider.forEach(event => allEvents.push(event));
     }
 
-    async start() {
-        await this._loadEvents();
-        this._timer = setInterval(async () => this._loadEvents(), this._calendar.intervalInSeconds * 1000);
-    }
+    this._allEvents = allEvents;
+    this.emit('eventsLoaded');
+  }
 
-    stop() {
-        clearInterval(this._timer);
-        this._timer = null;
-    }
+  _createProvider(providerConfig) {
+    const providerClass = require('../providers/' + providerConfig.provider);
 
-    getEvents() {
-        return this._allEvents;
-    }
+    return new providerClass(providerConfig.configuration);
+  }
 
-    async _loadEvents() {
-        const allEvents = [];
+  async _loadEventsForProvider(providerConfig, provider) {
+    const events = await provider.getEvents();
 
-        for (const providerConfig of this._calendar.providers) {
-            const provider = this._createProvider(providerConfig);
-            
-            var eventsForProvider = await this._loadEventsForProvider(providerConfig, provider);
-            eventsForProvider.forEach(event => allEvents.push(event));
-        }
+    events.forEach(event => this._applyForEvent(providerConfig, event));
 
-        this._allEvents = allEvents;
-        this.emit('eventsLoaded');
-    }
+    return events;
+  }
 
-    _createProvider(providerConfig) {
-        const providerClass = require('../providers/' + providerConfig.provider);
-    
-        return new providerClass(providerConfig.configuration);
-    }
+  _applyForEvent(providerConfig, event) {
+    event.id = `${this._calendar.id}/${providerConfig.id}/${event.id}`;
 
-    async _loadEventsForProvider(providerConfig, provider) {
-        const events = await provider.getEvents();
-
-        events.forEach(event => this._applyForEvent(providerConfig, event));
-
-        return events;
-    }
-
-    _applyForEvent(providerConfig, event) {
-        event.id = `${this._calendar.id}/${providerConfig.id}/${event.id}`;
-
-        event.tags = providerConfig.tags.map(tag => ({
-            name: tag,
-            properties: this._tags[tag]
-        }));
-    }
+    event.tags = providerConfig.tags.map(tag => ({
+      name: tag,
+      properties: this._tags[tag]
+    }));
+  }
 }
 
 module.exports = CalendarCrawler;

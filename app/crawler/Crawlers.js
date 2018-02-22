@@ -2,24 +2,24 @@ const EventEmitter = require('events').EventEmitter;
 const CalendarCrawler = require('./CalendarCrawler');
 
 class Crawlers extends EventEmitter {
-    constructor(configuration) {
-        super();
-        
-        this._crawlers = { };
+  constructor(configuration) {
+    super();
 
-        for (const calendar of configuration.calendars) {
-            const crawler = new CalendarCrawler(calendar, configuration.tags);
-            crawler.start();
+    this._crawlers = {};
 
-            this._crawlers[calendar.id] = crawler;
+    for (const calendar of configuration.calendars) {
+      const crawler = new CalendarCrawler(calendar, configuration.tags);
+      crawler.start();
 
-            crawler.on('eventsLoaded', () => this.emit('eventsLoaded'));
-        }
+      this._crawlers[calendar.id] = crawler;
+
+      crawler.on('eventsLoaded', () => this.emit('eventsLoaded'));
     }
+  }
 
-    getFor(id) {
-        return this._crawlers[id];
-    }
+  getFor(id) {
+    return this._crawlers[id];
+  }
 }
 
 module.exports = Crawlers;
