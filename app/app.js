@@ -18,6 +18,11 @@ process.on('unhandledRejection', r => {
   process.abort();
 });
 
+process.on('SIGINT', function() {
+  console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
+  process.exit(1);
+});
+
 // setup express
 app.set('port', process.env.PORT || 3001);
 app.use(express.static(path.join(__dirname, 'client/build')));
