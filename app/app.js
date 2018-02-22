@@ -14,10 +14,12 @@ crawlers.on('eventsLoaded', () => console.log('events loaded...'));
 
 // better error output for promises
 process.on('unhandledRejection', r => {
+  console.log("Unhandled promise rejection:");
   console.log(r);
   process.abort();
 });
 
+// Allow killing from docker container
 process.on('SIGINT', function() {
   console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
   process.exit(1);
