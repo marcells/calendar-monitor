@@ -7,12 +7,15 @@ class ICalendarProvider {
   }
 
   async getEvents () {
+    if (!this.calendarUrl)
+      throw new Error('Invalid calendar url.');
+
     const response = await axios.get(this.calendarUrl);
-  
+
     const jCal = iCal.parse(response.data);
     const component = new ICAL.Component(jCal);
     const vevents = component.getAllSubcomponents("vevent");
-  
+
     const events = vevents
       .map(vevent => new ICAL.Event(vevent))
       .map(event => ({
@@ -23,9 +26,9 @@ class ICalendarProvider {
         from: event.startDate.toJSDate(),
         to: event.endDate.toJSDate()
       }));
-  
+
     return events;
-  };  
+  }
 }
 
 module.exports = ICalendarProvider;

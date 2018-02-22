@@ -30,8 +30,23 @@ class CalendarCrawler extends EventEmitter {
     for (const providerConfig of this._calendar.providers) {
       const provider = this._createProvider(providerConfig);
 
-      var eventsForProvider = await this._loadEventsForProvider(providerConfig, provider);
-      eventsForProvider.forEach(event => allEvents.push(event));
+      try {
+        var eventsForProvider = await this._loadEventsForProvider(providerConfig, provider);
+        eventsForProvider.forEach(event => allEvents.push(event));
+      }
+      catch (ex) {
+        console.log('************************************************************************************************');
+        console.log(`Events for provider ${providerConfig.id} (${providerConfig.provider}) could not be loaded!`);
+        console.log();
+        console.log('Configuration');
+        console.log('-------------');
+        console.log(providerConfig.configuration);
+        console.log();
+        console.log('Exception');
+        console.log('---------');
+        console.log(ex);
+        console.log('************************************************************************************************');
+      }
     }
 
     this._allEvents = allEvents;
