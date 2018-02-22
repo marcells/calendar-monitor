@@ -10,12 +10,17 @@
     }
   ],
   "scripts": {
-    "start": "node app.js"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon app.js",
+    "client": "cd client && npm run start"
   },
   "dependencies": {
     "express": "4.16.2",
     "ical.js": "^1.2.2",
     "moment": "^2.20.1",
     "axios": "^0.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }
