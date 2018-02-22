@@ -15,7 +15,7 @@ crawlers.on('eventsLoaded', () => console.log('events loaded...'));
 app.set('port', process.env.PORT || 3001);
 
 app.use(express.static(path.join(__dirname, 'client/build')));
-app.use('/api', createApi(crawlers));
+app.use('/api', createApi(configuration, crawlers));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });

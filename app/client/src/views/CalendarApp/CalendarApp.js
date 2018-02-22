@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Main from './views/Main/Main';
+import Main from '../Main/Main';
 import axios from 'axios';
 
 class CalendarApp extends Component {

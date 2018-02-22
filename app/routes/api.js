@@ -1,7 +1,7 @@
 const express = require('express');
 const moment = require('moment');
 
-function create(crawlers) {
+function create(configuration, crawlers) {
   const router = express.Router();
 
   router.get('/nextCalendars/:numberOfCalendars', (req, res, next) => {
@@ -12,6 +12,15 @@ function create(crawlers) {
       .map(x => ({ year: x.year(), month: x.month() }));
 
     res.send({ calendars : calendars });
+  });
+
+  router.get('/calendars', (req, res, next) => {
+    const calendars = configuration.calendars.map(x => ({
+      id: x.id,
+      description: x.description
+    }));
+
+    res.send({ calendars: calendars });
   });
 
   router.get('/calendar/:calendar/:year/:month', (req, res, next) => {
