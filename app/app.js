@@ -10,8 +10,6 @@ const app = express();
 const configuration = readConfiguration();
 const crawlers = new Crawlers(configuration);
 
-crawlers.on('eventsLoaded', () => console.log('events loaded...'));
-
 // better error output for promises
 process.on('unhandledRejection', r => {
   console.log("Unhandled promise rejection:");

@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  calendar-monitor:
+    restart: unless-stopped
+    image: marcells/calendar-monitor
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3005:3001

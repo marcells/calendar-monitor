@@ -8,7 +8,7 @@
   "calendars": [
     {
       "id": "all",
-      "intervalInSeconds": 10,
+      "intervalInSeconds": 3600,
       "description": "All Events",
       "providers": [
         {
@@ -16,10 +16,7 @@
           "id": "GoogleCalendarEvents",
           "tags": [
             "common"
-          ],
-          "configuration": {
-            "calendarUrl": ""
-          }
+          ]
         }
       ]
     }
