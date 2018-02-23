@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import CalendarApp from './views/CalendarApp/CalendarApp';
 import CalendarList from './views/CalendarList/CalendarList';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
+import './Root.css';
 
-class App extends Component {
+class Root extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="Root">
           <Route exact={true} path="/" component={Welcome} />
           <Route path="/calendar/:calendar" component={CalendarView} />
         </div>
@@ -28,4 +28,4 @@ const CalendarView = ({ match }) => (
   <CalendarApp calendar={match.params.calendar} />
 );
 
-export default App;
+export default Root;
