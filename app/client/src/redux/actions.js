@@ -20,19 +20,20 @@ export const loadCalendar = (calendarId) => {
 
     dispatch({ type: LOAD_CALENDAR, calendarId: calendarId });
 
-    const calendars = await axios.get('/api/nextCalendars/2');
     const upcoming = await axios.get(`/api/upcoming/${calendarId}`);
-    const calendarsWithEvents = await _getCalendarsWithEvents(calendarId, calendars.data.calendars);
+    const calendars = await axios.get('/api/nextCalendars/2');
+    const calendarsWithEvents = await getCalendarsWithEvents(calendarId, calendars.data.calendars);
 
     dispatch({
       type: LOAD_CALENDAR_SUCCESS,
       calendarId: calendarId,
       calendars: calendarsWithEvents,
-      upcoming: upcoming.data.events });
+      upcoming: upcoming.data.events
+    });
    }
  };
 
- const _getCalendarsWithEvents = async (calendarId, calendars) => {
+ const getCalendarsWithEvents = async (calendarId, calendars) => {
   const calendarsWithEvents = [];
 
   for (const calendar of calendars) {
