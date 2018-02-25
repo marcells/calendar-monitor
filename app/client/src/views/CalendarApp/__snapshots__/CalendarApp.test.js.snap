@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarApp has calendars should render calendar items correctly 1`] = `
+<div
+  className="Content"
+>
+  <div
+    className="Calendars"
+  >
+    <Calendar
+      calendar={
+        Object {
+          "date": Object {
+            "month": 0,
+            "year": 2018,
+          },
+        }
+      }
+    />
+    <Calendar
+      calendar={
+        Object {
+          "date": Object {
+            "month": 1,
+            "year": 2018,
+          },
+        }
+      }
+    />
+  </div>
+  <Upcoming
+    events={
+      Array [
+        Object {
+          "id": 1,
+          "title": "Event 1",
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`CalendarApp has no calendars should render calendar items correctly 1`] = `
+<div
+  className="Content"
+>
+  <div
+    className="Calendars"
+  >
+    
+  </div>
+  <Upcoming
+    events={Array []}
+  />
+</div>
+`;

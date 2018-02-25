@@ -1,15 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import configureStore from 'redux-mock-store';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import ConnectedCalendarList, { CalendarList } from './CalendarList';
-
-const mockStore = configureStore();
-const store = mockStore({
-  calendars: {
-    items: []
-  }
-});
+import CalendarList from './CalendarList';
 
 const mockedDispatch = jest.fn();
 
@@ -28,7 +20,7 @@ describe('CalendarList', () => {
       ];
 
       const renderer = new ShallowRenderer();
-      const result = renderer.render(<CalendarList items={items} />);
+      const result = renderer.render(<CalendarList.WrappedComponent dispatch={mockedDispatch} items={items} />);
 
       expect(result).toMatchSnapshot();
     });
@@ -37,13 +29,13 @@ describe('CalendarList', () => {
   describe('has no items', () => {
     it('should render calendar items correctly', () => {
       const renderer = new ShallowRenderer();
-      const result = renderer.render(<CalendarList items={[]} />);
+      const result = renderer.render(<CalendarList.WrappedComponent dispatch={mockedDispatch} items={[]} />);
 
       expect(result).toMatchSnapshot();
     });
 
     it('should render an empty unordered list', () => {
-      const wrapper = shallow(<CalendarList store={store} dispatch={mockedDispatch} items={[]} />);
+      const wrapper = shallow(<CalendarList.WrappedComponent dispatch={mockedDispatch} items={[]} />);
 
       expect(wrapper.find('ul')).toHaveLength(1);
       expect(wrapper.find('li')).toHaveLength(0);

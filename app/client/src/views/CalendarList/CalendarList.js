@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { loadCalendars } from '../../redux/actions';
 import './CalendarList.css'
 
-export class CalendarList extends Component {
+class CalendarList extends Component {
   async componentDidMount() {
     this.props.dispatch(loadCalendars());
   }
@@ -12,7 +12,10 @@ export class CalendarList extends Component {
   render() {
     return (
       <ul>
-        {this.props.items.map(x => <li key={x.id}><Link to={`/calendar/${x.id}`}>{x.description}</Link></li>)}
+        {this.props.items.map(x =>
+          <li key={x.id}>
+            <Link to={`/calendar/${x.id}`}>{x.description}</Link>
+          </li>)}
       </ul>
     );
   }

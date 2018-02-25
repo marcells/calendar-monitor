@@ -7,9 +7,9 @@ import './CalendarApp.css';
 
 class CalendarApp extends Component {
   async componentDidMount() {
-    this.props.dispatch(loadCalendar(this.props.calendar));
+    this.props.dispatch(loadCalendar(this.props.calendarId));
 
-    this._timer = setInterval(() => this.props.dispatch(loadCalendar(this.props.calendar)), 10000);
+    this._timer = setInterval(() => this.props.dispatch(loadCalendar(this.props.calendarId)), 10000);
   }
 
   componentWillUnmount() {
@@ -22,7 +22,7 @@ class CalendarApp extends Component {
     return (
       <div className="Content">
         <div className="Calendars">
-          { this.props.calendars.map(x => <Calendar key={this.props.calendar + x.date.year + x.date.month} calendar={x} />) }
+          { this.props.calendars.map(x => <Calendar key={this.props.calendarId + x.date.year + x.date.month} calendar={x} />) }
         </div>
 
         <Upcoming events={this.props.upcoming} />
