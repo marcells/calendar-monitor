@@ -3,8 +3,6 @@ import { shallow } from 'enzyme';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import CalendarList from './CalendarList';
 
-const mockedDispatch = jest.fn();
-
 describe('CalendarList', () => {
   describe('has items', () => {
     it('should render calendar items correctly', () => {
@@ -19,6 +17,7 @@ describe('CalendarList', () => {
         }
       ];
 
+      const mockedDispatch = jest.fn();
       const renderer = new ShallowRenderer();
       const result = renderer.render(<CalendarList.WrappedComponent dispatch={mockedDispatch} items={items} />);
 
@@ -28,6 +27,7 @@ describe('CalendarList', () => {
 
   describe('has no items', () => {
     it('should render calendar items correctly', () => {
+      const mockedDispatch = jest.fn();
       const renderer = new ShallowRenderer();
       const result = renderer.render(<CalendarList.WrappedComponent dispatch={mockedDispatch} items={[]} />);
 
@@ -35,6 +35,7 @@ describe('CalendarList', () => {
     });
 
     it('should render an empty unordered list', () => {
+      const mockedDispatch = jest.fn();
       const wrapper = shallow(<CalendarList.WrappedComponent dispatch={mockedDispatch} items={[]} />);
 
       expect(wrapper.find('ul')).toHaveLength(1);
