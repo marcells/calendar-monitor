@@ -1,0 +1,28 @@
+li {
+  list-style-type: none;
+}
+
+ul {
+  display: table;
+  width: 40%;
+  padding: 0px;
+  margin: 0 auto;
+}
+
+a {
+  display: block;
+  font-size: 200%;
+  background: gray;
+  border-radius: 5px;
+  padding: 15px;
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  color: black;
+}
+
+a:hover {
+  background: black;
+  color: white;
+}

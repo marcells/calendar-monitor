@@ -15,7 +15,7 @@ class Root extends Component {
         <Router>
           <div className="Root">
             <Route exact={true} path="/" component={Welcome} />
-            <Route path="/calendar/:calendar" component={CalendarView} />
+            <Route path="/calendar/:calendar" component={Calendar} />
           </div>
         </Router>
       </Provider>
@@ -25,12 +25,12 @@ class Root extends Component {
 
 const Welcome = () => (
   <div>
-    <div>Welcome!</div>
+    <h1>Choose your calendar</h1>
     <CalendarList />
   </div>
 );
 
-const CalendarView = ({ match }) => (
+const Calendar = ({ match }) => (
   <CalendarApp calendar={match.params.calendar} />
 );
 
