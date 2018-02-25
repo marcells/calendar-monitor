@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import configureStore from './redux/configureStore';
 import CalendarApp from './views/CalendarApp/CalendarApp';
 import CalendarList from './views/CalendarList/CalendarList';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './Root.css';
  
 const store = configureStore()

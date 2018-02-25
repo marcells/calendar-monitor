@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { loadCalendar } from '../../redux/actions';
-import Main from '../Main/Main';
+import Calendar from '../../components/Calendar/Calendar';
+import Upcoming from '../../components/Upcoming/Upcoming';
+import './CalendarApp.css';
 
 class CalendarApp extends Component {
   async componentDidMount() {
@@ -18,7 +20,13 @@ class CalendarApp extends Component {
 
   render() {
     return (
-        <Main calendar={this.props.calendar} calendars={this.props.calendars} upcoming={this.props.upcoming} />
+      <div className="Content">
+        <div className="Calendars">
+          { this.props.calendars.map(x => <Calendar key={this.props.calendar + x.date.year + x.date.month} calendar={x} />) }
+        </div>
+
+        <Upcoming events={this.props.upcoming} />
+      </div>
     );
   }
 }
