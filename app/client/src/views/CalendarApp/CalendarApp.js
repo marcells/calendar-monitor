@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { loadCalendar } from '../../redux/actions';
 import Main from '../Main/Main';
-import axios from 'axios';
 
 class CalendarApp extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      calendars: [],
-      events: [],
-      upcoming: []
-    };
-  }
-
   async componentDidMount() {
-    await this._loadCalendars();
+    this.props.dispatch(loadCalendar(this.props.calendar));
 
-    this._timer = setInterval(async () => await this._loadCalendars(), 10000);
+    this._timer = setInterval(() => this.props.dispatch(loadCalendar(this.props.calendar)), 10000);
   }
 
   componentWillUnmount() {
@@ -27,35 +18,19 @@ class CalendarApp extends Component {
 
   render() {
     return (
-        <Main calendar={this.props.calendar} calendars={this.state.calendars} upcoming={this.state.upcoming} />
+        <Main calendar={this.props.calendar} calendars={this.props.calendars} upcoming={this.props.upcoming} />
     );
-  }
-
-  async _loadCalendars() {
-    const calendars = await axios.get('/api/nextCalendars/2');
-    const upcoming = await axios.get(`/api/upcoming/${this.props.calendar}`);
-    const calendarsWithEvents = await this._getCalendarsWithEvents(calendars.data.calendars);
-
-    this.setState({
-      calendars: calendarsWithEvents,
-      upcoming: upcoming.data.events
-    });
-  }
-
-  async _getCalendarsWithEvents(calendars) {
-    const calendarsWithEvents = [];
-
-    for (const calendar of calendars) {
-      const events = await axios.get(`/api/calendar/${this.props.calendar}/${calendar.year}/${calendar.month}`);
-
-      calendarsWithEvents.push({
-        date: calendar,
-        events: events.data.events
-      });
-    }
-
-    return calendarsWithEvents;
   }
 }
 
-export default CalendarApp;
+function mapStateToProps(state, ownProps) {
+  const { calendars, upcoming } = state.calendar;
+
+  return {
+    calendarId: ownProps.calendar,
+    calendars,
+    upcoming
+  };
+}
+
+export default connect(mapStateToProps)(CalendarApp);
