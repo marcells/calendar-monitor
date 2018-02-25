@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { loadCalendars } from '../../redux/actions';
 import './CalendarList.css'
 
-class CalendarList extends Component {
+export class CalendarList extends Component {
   async componentDidMount() {
     this.props.dispatch(loadCalendars());
   }

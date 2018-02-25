@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarList has items should render calendar items correctly 1`] = `
+<ul>
+  <li>
+    <Link
+      replace={false}
+      to="/calendar/calendar1"
+    >
+      some description for calendar 1
+    </Link>
+  </li>
+  <li>
+    <Link
+      replace={false}
+      to="/calendar/calendar2"
+    >
+      some description for calendar 2
+    </Link>
+  </li>
+</ul>
+`;
+
+exports[`CalendarList has no items should render calendar items correctly 1`] = `
+<ul>
+  
+</ul>
+`;
