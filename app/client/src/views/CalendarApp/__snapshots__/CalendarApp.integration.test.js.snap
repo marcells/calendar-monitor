@@ -1,0 +1,940 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarList integration should render the calendars correctly 1`] = `
+<div
+  className="Content"
+>
+  <div
+    className="Calendars"
+  >
+    <div
+      className="Calendar"
+    >
+      <div
+        className="Calendar-header"
+      >
+        <div
+          className="Calendar-header-month"
+        >
+          January
+        </div>
+        <div
+          className="Calendar-header-weekdays"
+        >
+          <div>
+            Sunday
+          </div>
+          <div>
+            Monday
+          </div>
+          <div>
+            Tuesday
+          </div>
+          <div>
+            Wednesday
+          </div>
+          <div>
+            Thursday
+          </div>
+          <div>
+            Friday
+          </div>
+          <div>
+            Saturday
+          </div>
+        </div>
+      </div>
+      <div
+        className="Calendar-days"
+      >
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={
+            Object {
+              "gridColumn": 2,
+            }
+          }
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            1
+          </div>
+          <div
+            className="Calendar-day-events"
+          >
+            <div
+              className="Calendar-day-event"
+            >
+              <span
+                className="Calendar-day-event-from"
+              >
+                17:00
+              </span>
+              <span
+                className="Calendar-day-event-title"
+              >
+                Entry 1
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            2
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            3
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            4
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            5
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            6
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            7
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            8
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            9
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            10
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            11
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            12
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            13
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            14
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            15
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            16
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            17
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            18
+          </div>
+          <div
+            className="Calendar-day-events"
+          >
+            <div
+              className="Calendar-day-event"
+            >
+              <span
+                className="Calendar-day-event-from"
+              >
+                07:00
+              </span>
+              <span
+                className="Calendar-day-event-title"
+              >
+                Entry 2
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            19
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            20
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            21
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            22
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            23
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            24
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            25
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            26
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            27
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            28
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            29
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            30
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            31
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="Calendar"
+    >
+      <div
+        className="Calendar-header"
+      >
+        <div
+          className="Calendar-header-month"
+        >
+          February
+        </div>
+        <div
+          className="Calendar-header-weekdays"
+        >
+          <div>
+            Sunday
+          </div>
+          <div>
+            Monday
+          </div>
+          <div>
+            Tuesday
+          </div>
+          <div>
+            Wednesday
+          </div>
+          <div>
+            Thursday
+          </div>
+          <div>
+            Friday
+          </div>
+          <div>
+            Saturday
+          </div>
+        </div>
+      </div>
+      <div
+        className="Calendar-days"
+      >
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={
+            Object {
+              "gridColumn": 5,
+            }
+          }
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            1
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            2
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            3
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            4
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            5
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            6
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            7
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            8
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            9
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            10
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            11
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            12
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            13
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            14
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            15
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            16
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            17
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            18
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            19
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            20
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            21
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            22
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            23
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            24
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-weekend "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            25
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday Calendar-day-is-today"
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            26
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            27
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+        <div
+          className="Calendar-day Calendar-day-is-workday "
+          style={Object {}}
+        >
+          <div
+            className="Calendar-day-column"
+          >
+            28
+          </div>
+          <div
+            className="Calendar-day-events"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="Upcoming"
+  >
+    <div
+      className="Upcoming-header"
+    >
+      Upcoming Events
+    </div>
+    <div>
+      <div
+        className="Upcoming-event"
+      >
+        <div
+          className="Upcoming-event-title"
+        >
+          Entry 1
+        </div>
+        <div
+          className="Upcoming-event-from"
+        >
+          01/01/2018
+        </div>
+      </div>
+      <div
+        className="Upcoming-event"
+      >
+        <div
+          className="Upcoming-event-title"
+        >
+          Entry 2
+        </div>
+        <div
+          className="Upcoming-event-from"
+        >
+          01/18/2018
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
