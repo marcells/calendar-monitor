@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Calendar Monitor",
+  "name": "Calendar Monitor - monitor all your appointments at one place",
   "icons": [
     {
       "src": "favicon.ico",
