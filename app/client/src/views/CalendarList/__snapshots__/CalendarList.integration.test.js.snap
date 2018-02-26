@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarList integration should render the calendars correctly 1`] = `
+<ul>
+  <li>
+    <a
+      href="/calendar/calendar1"
+      onClick={[Function]}
+    >
+      some description for calendar 1
+    </a>
+  </li>
+  <li>
+    <a
+      href="/calendar/calendar2"
+      onClick={[Function]}
+    >
+      some description for calendar 2
+    </a>
+  </li>
+</ul>
+`;
