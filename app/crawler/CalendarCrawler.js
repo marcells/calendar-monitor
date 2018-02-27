@@ -8,6 +8,12 @@ class CalendarCrawler extends EventEmitter {
     this._tags = tags;
     this._timer = null;
     this._allEvents = [];
+    this._providers = this._calendar
+      .providers
+      .reduce((map, providerConfig) => {
+        map[providerConfig.id] = this._createProvider(providerConfig);
+        return map;
+      }, {});
   }
 
   async start() {
@@ -28,7 +34,7 @@ class CalendarCrawler extends EventEmitter {
     const allEvents = [];
 
     for (const providerConfig of this._calendar.providers) {
-      const provider = this._createProvider(providerConfig);
+      const provider = this._providers[providerConfig.id];
 
       try {
         var eventsForProvider = await this._loadEventsForProvider(providerConfig, provider);

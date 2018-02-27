@@ -13,12 +13,25 @@
       "providers": [
         {
           "provider": "MockProvider",
-          "id": "GoogleCalendarEvents",
+          "id": "CalendarEvents",
           "tags": [
             "common"
           ],
           "configuration": {
-            "calendarUrl": ""
+            "randomWords" : [ "Lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit", "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore", "et", "dolore", "magna", "aliqua" ],
+            "monthsFromNow": 2,
+            "numberOfEventsPerMonth": { "minimum": 10, "maximum": 30 },
+            "allowedWeekdays": [ 1, 2, 3, 4, 5 ],
+            "fromTime": {
+              "stepInMinutes": 15,
+              "minimum": { "hours": 7, "minutes": 0 },
+              "maximum": { "hours": 20, "minutes": 0 }
+            },
+            "duration": {
+              "stepInMinutes": 15,
+              "minimum": { "hours": 0, "minutes": 15 },
+              "maximum": { "hours": 5, "minutes": 0 }
+            }
           }
         }
       ]
