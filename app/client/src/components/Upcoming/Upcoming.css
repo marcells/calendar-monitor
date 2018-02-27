@@ -2,6 +2,7 @@
   background-color: var(--pane-background-color);
   border-radius: var(--pane-border-radius);
   margin: 5px;
+  overflow: auto;
 }
 
 .Upcoming-header {
@@ -15,6 +16,7 @@
   background-color: #888;
   margin: 5px;
   box-shadow: 2px 2px 2px #888;
+  overflow: auto;
 }
 
 .Upcoming-event-title {

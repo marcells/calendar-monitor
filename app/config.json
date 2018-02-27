@@ -21,7 +21,7 @@
             "cacheEvents": true,
             "randomWords" : [ "Lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit", "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore", "et", "dolore", "magna", "aliqua" ],
             "monthsFromNow": 2,
-            "numberOfEventsPerMonth": { "minimum": 10, "maximum": 30 },
+            "numberOfEventsPerMonth": { "minimum": 15, "maximum": 30 },
             "allowedWeekdays": [ 1, 2, 3, 4, 5 ],
             "fromTime": {
               "stepInMinutes": 15,
