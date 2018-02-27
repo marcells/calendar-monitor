@@ -92,7 +92,7 @@ class MockProvider {
 
   async getEvents () {
     return new Promise((resolve, reject) => {
-      if (!this._generatedEvents) {
+      if (!this._configuration.cacheEvents || !this._generatedEvents) {
         this._generatedEvents = generateEvents(this._configuration);
       }
 
