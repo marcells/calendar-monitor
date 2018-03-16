@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import moment from 'moment';
+import { openEventDetails } from '../../redux/actions';
 import './Calendar.css';
 
 class Calendar extends Component {
   render() {
     return (
-        <div className="Calendar">
-          <CalendarHeader date={this.props.calendar.date} />
-          <CalendarDays date={this.props.calendar.date} events={this.props.calendar.events} />
-        </div>
-      );
+      <div className="Calendar">
+        <CalendarHeader date={this.props.calendar.date} />
+        <CalendarDays dispatch={this.props.dispatch} date={this.props.calendar.date} events={this.props.calendar.events} />
+      </div>
+    );
   }
 }
 
@@ -25,7 +27,7 @@ function CalendarDays(props) {
 
   return (
       <div className="Calendar-days">
-        { days.map(x => <CalendarDay key={x} year={props.date.year} month={props.date.month} day={x} events={eventsForDay(x)} />) }
+        { days.map(x => <CalendarDay dispatch={props.dispatch} key={x} year={props.date.year} month={props.date.month} day={x} events={eventsForDay(x)} />) }
       </div>
     );
 }
@@ -49,7 +51,7 @@ function CalendarDay(props) {
       <div className="Calendar-day-column">{props.day}</div>
 
       <div className="Calendar-day-events">
-        { props.events.map(x => <div key={x.id} className="Calendar-day-event">
+        { props.events.map(x => <div key={x.id} className="Calendar-day-event" onClick={() => props.dispatch(openEventDetails()) }>
                                   <span className="Calendar-day-event-from">{moment(x.from).format('HH:mm')}</span>
                                   <span className="Calendar-day-event-title">{x.title}</span>
                                 </div>) }
@@ -74,4 +76,9 @@ function CalendarHeader(props) {
   );
 }
 
-export default Calendar;
+
+function mapStateToProps(state, ownProps) {
+  return {};
+}
+
+export default connect(mapStateToProps)(Calendar);

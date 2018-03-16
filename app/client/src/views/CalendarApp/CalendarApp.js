@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { loadCalendar } from '../../redux/actions';
+import { loadCalendar, closeEventDetails } from '../../redux/actions';
 import Calendar from '../../components/Calendar/Calendar';
 import Upcoming from '../../components/Upcoming/Upcoming';
+import Modal from 'react-modal';
 import './CalendarApp.css';
 
 class CalendarApp extends Component {
@@ -26,6 +27,11 @@ class CalendarApp extends Component {
         </div>
 
         <Upcoming events={this.props.upcoming} />
+
+        <Modal isOpen={this.props.showEventDetails}>
+          <span style={ { fontSize: '20pt' }}>Event-Details</span>
+          <button onClick={() => this.props.dispatch(closeEventDetails()) }>Close</button>
+        </Modal>
       </div>
     );
   }
@@ -33,11 +39,13 @@ class CalendarApp extends Component {
 
 function mapStateToProps(state, ownProps) {
   const { calendars, upcoming } = state.calendar;
+  const { isOpen } = state.eventDetails;
 
   return {
     calendarId: ownProps.calendar,
     calendars,
-    upcoming
+    upcoming,
+    showEventDetails: isOpen
   };
 }
 

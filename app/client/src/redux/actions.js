@@ -3,7 +3,9 @@ import {
   LOAD_CALENDARS,
   LOAD_CALENDARS_SUCCESS,
   LOAD_CALENDAR,
-  LOAD_CALENDAR_SUCCESS } from './actionTypes'
+  LOAD_CALENDAR_SUCCESS,
+  OPEN_EVENTDETAILS,
+  CLOSE_EVENTDETAILS } from './actionTypes'
 
 export const loadCalendars = () => {
  return async dispatch => {
@@ -12,12 +14,11 @@ export const loadCalendars = () => {
     const response = await axios.get('/api/calendars');
 
     dispatch({ type: LOAD_CALENDARS_SUCCESS, calendars: response.data.calendars });
-  }
+  };
 };
 
 export const loadCalendar = (calendarId) => {
   return async dispatch => {
-
     dispatch({ type: LOAD_CALENDAR, calendarId: calendarId });
 
     const upcoming = await axios.get(`/api/upcoming/${calendarId}`);
@@ -30,10 +31,26 @@ export const loadCalendar = (calendarId) => {
       calendars: calendarsWithEvents,
       upcoming: upcoming.data.events
     });
-   }
+   };
  };
 
- const getCalendarsWithEvents = async (calendarId, calendars) => {
+export const openEventDetails = () => {
+  return async dispatch => {
+    dispatch({ type: OPEN_EVENTDETAILS });
+
+    await axios.get('/api/nextCalendars/2');
+  };
+ };
+
+export const closeEventDetails = () => {
+  return async dispatch => {
+    dispatch({ type: CLOSE_EVENTDETAILS });
+
+    await axios.get('/api/nextCalendars/2');
+  };
+};
+
+const getCalendarsWithEvents = async (calendarId, calendars) => {
   const calendarsWithEvents = [];
 
   for (const calendar of calendars) {
