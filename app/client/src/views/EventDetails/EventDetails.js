@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import Modal from 'react-modal';
 import moment from 'moment';
 import { closeEventDetails } from '../../redux/actions';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faCalendarAlt from '@fortawesome/fontawesome-free-solid/faCalendarAlt'
+import faClock from '@fortawesome/fontawesome-free-solid/faClock'
+import faAlignJustify from '@fortawesome/fontawesome-free-solid/faAlignJustify'
+import faTags from '@fortawesome/fontawesome-free-solid/faTags'
 import './EventDetails.css';
 
 const Tag = props => (
@@ -29,16 +34,16 @@ class EventDetails extends Component {
         </div>
 
         <div className="Properties">
-          <span>Title</span>
+          <span><FontAwesomeIcon icon={faCalendarAlt} /></span>
           <span>{this.props.event.title}</span>
 
-          <span>Time</span>
+          <span><FontAwesomeIcon icon={faClock} /></span>
           <span>{moment(this.props.event.from).format('L LT')} - {moment(this.props.event.to).format('L LT')}</span>
 
-          <span>Description</span>
+          <span><FontAwesomeIcon icon={faAlignJustify} /></span>
           <div>{this.props.event.description}</div>
 
-          <span>Tags</span>
+          <span><FontAwesomeIcon icon={faTags} /></span>
           <div className="Tags">{this.props.event.tags.map(x => <Tag key={x.name} data={x} />)}</div>
         </div>
 
