@@ -22,8 +22,8 @@ class Crawlers extends EventEmitter {
   }
 
   getEventById(id) {
-    return this
-      ._crawlers
+    return Object.values(this._crawlers)
+      .map(x => x.getEvents())
       .reduce((x, y) => x.concat(y))
       .find(x => x.id === id);
   }

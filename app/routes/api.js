@@ -54,7 +54,7 @@ function create(configuration, crawlers) {
   });
 
   router.get('/events/byId/:id', (req, res, next) => {
-    const event = crawlers.getidEventById(req.params.calendar);
+    const event = crawlers.getEventById(req.params.id);
 
     res.send(!event ? 404 : event);
   });
