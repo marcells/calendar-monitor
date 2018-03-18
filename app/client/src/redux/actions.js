@@ -36,11 +36,11 @@ export const loadCalendar = (calendarId) => {
 
 export const openEventDetails = (id) => {
   return async dispatch => {
+    const response = await axios.get(`/api/events/byId/${encodeURIComponent(id)}`);
+
     dispatch({
       type: OPEN_EVENTDETAILS,
-      event: {
-        id
-      }
+      event: response.data
     });
   };
  };

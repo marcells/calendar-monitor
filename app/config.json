@@ -2,7 +2,8 @@
   "general": {},
   "tags": {
     "common": {
-      "color": "black"
+      "backgroundColor": "black",
+      "foregroundColor": "white"
     }
   },
   "calendars": [

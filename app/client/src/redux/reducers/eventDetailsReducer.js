@@ -13,11 +13,11 @@ function openEventDetails(state, action) {
 function closeEventDetails(state, action) {
   return updateObject(state, {
     isOpen: false,
-    event: {}
+    event: { tags: [] }
   });
 }
 
-const initialEventDetailsState = { isOpen: false, event: {} };
+const initialEventDetailsState = { isOpen: false, event: { tags: [] } };
 
 const eventDetailsReducer = createReducer(initialEventDetailsState, {
   [OPEN_EVENTDETAILS]: openEventDetails,

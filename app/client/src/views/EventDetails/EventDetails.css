@@ -2,14 +2,22 @@
   font-size: 20pt;
   background: black;
   color: white;
+  margin-bottom: 30px;
 }
 
 .Properties {
   display: grid;
   grid-template-columns: auto auto;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto;
+  grid-row-gap: 15px;
 }
 
 .Actions {
   text-align: right
+}
+
+.Tags > span {
+  margin-right: 5px;
+  padding: 5px;
+  border-radius: 10px;
 }
