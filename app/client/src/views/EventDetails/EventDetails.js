@@ -8,6 +8,7 @@ import faCalendarAlt from '@fortawesome/fontawesome-free-solid/faCalendarAlt'
 import faClock from '@fortawesome/fontawesome-free-solid/faClock'
 import faAlignJustify from '@fortawesome/fontawesome-free-solid/faAlignJustify'
 import faTags from '@fortawesome/fontawesome-free-solid/faTags'
+import faMapMarkerAlt from '@fortawesome/fontawesome-free-solid/faMapMarkerAlt'
 import './EventDetails.css';
 
 const Tag = props => (
@@ -29,25 +30,28 @@ class EventDetails extends Component {
 
     return (
       <Modal isOpen={this.props.isOpen} style={customStyles}>
-        <div className="Header">
+        <div className="EventDetails-Header">
           <span>Event-Details</span>
         </div>
 
-        <div className="Properties">
+        <div className="EventDetails-Properties">
           <span><FontAwesomeIcon icon={faCalendarAlt} /></span>
-          <span className="Title">{this.props.event.title}</span>
+          <span className="EventDetails-Title">{this.props.event.title}</span>
 
           <span><FontAwesomeIcon icon={faClock} /></span>
           <span>{moment(this.props.event.from).format('L LT')} - {moment(this.props.event.to).format('L LT')}</span>
 
+          <span><FontAwesomeIcon icon={faMapMarkerAlt} /></span>
+          <a className="EventDetails-Location" href={`https://maps.google.com?q=${encodeURIComponent(this.props.event.location)}`} target="blank">{this.props.event.location}</a>
+
           <span><FontAwesomeIcon icon={faAlignJustify} /></span>
-          <div className="Description">{this.props.event.description}</div>
+          <div className="EventDetails-Description">{this.props.event.description}</div>
 
           <span><FontAwesomeIcon icon={faTags} /></span>
-          <div className="Tags">{this.props.event.tags.map(x => <Tag key={x.name} data={x} />)}</div>
+          <div className="EventDetails-Tags">{this.props.event.tags.map(x => <Tag key={x.name} data={x} />)}</div>
         </div>
 
-        <div className="Actions">
+        <div className="EventDetails-Actions">
           <button onClick={() => this.props.dispatch(closeEventDetails()) }>Close</button>
         </div>
       </Modal>

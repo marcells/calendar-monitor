@@ -1,4 +1,4 @@
-.Header {
+.EventDetails-Header {
   font-size: 20pt;
   background: black;
   color: white;
@@ -6,7 +6,7 @@
   padding: 5px;
 }
 
-.Properties {
+.EventDetails-Properties {
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto;
@@ -14,20 +14,24 @@
   grid-column-gap: 20px;
 }
 
-.Actions {
+.EventDetails-Actions {
   text-align: right
 }
 
-.Title {
+.EventDetails-Title {
   font-weight: bold;
 }
 
-.Description {
+.EventDetails-Location a, a:link, a:visited {
+  color: black;
+}
+
+.EventDetails-Description {
   max-width: 80vw;
   white-space: pre-wrap;
 }
 
-.Tags > span {
+.EventDetails-Tags > span {
   margin-right: 5px;
   padding: 5px;
   border-radius: 10px;

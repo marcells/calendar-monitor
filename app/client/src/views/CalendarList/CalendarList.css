@@ -1,15 +1,15 @@
-li {
+.CalendarList li {
   list-style-type: none;
 }
 
-ul {
+.CalendarList ul {
   display: table;
   width: 40%;
   padding: 0px;
   margin: 0 auto;
 }
 
-a {
+.CalendarList a {
   display: block;
   font-size: 200%;
   background: gray;
@@ -18,11 +18,11 @@ a {
   text-decoration: none;
 }
 
-a:link, a:visited {
+.CalendarList a:link, a:visited {
   color: black;
 }
 
-a:hover {
+.CalendarList a:hover {
   background: black;
   color: white;
 }

@@ -11,7 +11,7 @@ class CalendarList extends Component {
 
   render() {
     return (
-      <ul>
+      <ul className="CalendarList">
         {this.props.items.map(x =>
           <li key={x.id}>
             <Link to={`/calendar/${x.id}`}>{x.description}</Link>
