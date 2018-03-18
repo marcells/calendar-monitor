@@ -53,6 +53,12 @@ function create(configuration, crawlers) {
     res.send(events);
   });
 
+  router.get('/events/byId/:id', (req, res, next) => {
+    const event = crawlers.getidEventById(req.params.calendar);
+
+    res.send(!event ? 404 : event);
+  });
+
   return router;
 };
 

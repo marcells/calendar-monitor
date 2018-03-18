@@ -68,9 +68,20 @@ class CalendarCrawler extends EventEmitter {
   async _loadEventsForProvider(providerConfig, provider) {
     const events = await provider.getEvents();
 
-    events.forEach(event => this._applyForEvent(providerConfig, event));
+    return events.map(originalEvent => {
+      const event = {
+        id: originalEvent.id,
+        title: originalEvent.title,
+        description: originalEvent.description,
+        location: originalEvent.location,
+        from: originalEvent.from,
+        to: originalEvent.to
+      };
 
-    return events;
+      this._applyForEvent(providerConfig, event);
+
+      return event;
+    });
   }
 
   _applyForEvent(providerConfig, event) {

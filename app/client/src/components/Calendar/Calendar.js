@@ -51,7 +51,7 @@ function CalendarDay(props) {
       <div className="Calendar-day-column">{props.day}</div>
 
       <div className="Calendar-day-events">
-        { props.events.map(x => <div key={x.id} className="Calendar-day-event" onClick={() => props.dispatch(openEventDetails()) }>
+        { props.events.map(x => <div key={x.id} className="Calendar-day-event" onClick={() => props.dispatch(openEventDetails(x.id)) }>
                                   <span className="Calendar-day-event-from">{moment(x.from).format('HH:mm')}</span>
                                   <span className="Calendar-day-event-title">{x.title}</span>
                                 </div>) }

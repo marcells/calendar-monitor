@@ -20,6 +20,13 @@ class Crawlers extends EventEmitter {
   getFor(id) {
     return this._crawlers[id];
   }
+
+  getEventById(id) {
+    return this
+      ._crawlers
+      .reduce((x, y) => x.concat(y))
+      .find(x => x.id === id);
+  }
 }
 
 module.exports = Crawlers;

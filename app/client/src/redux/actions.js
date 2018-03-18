@@ -34,11 +34,14 @@ export const loadCalendar = (calendarId) => {
    };
  };
 
-export const openEventDetails = () => {
+export const openEventDetails = (id) => {
   return async dispatch => {
-    dispatch({ type: OPEN_EVENTDETAILS });
-
-    await axios.get('/api/nextCalendars/2');
+    dispatch({
+      type: OPEN_EVENTDETAILS,
+      event: {
+        id
+      }
+    });
   };
  };
 

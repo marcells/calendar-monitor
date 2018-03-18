@@ -5,17 +5,19 @@ import {
 
 function openEventDetails(state, action) {
   return updateObject(state, {
-    isOpen: true
+    isOpen: true,
+    event: action.event
   });
 }
 
 function closeEventDetails(state, action) {
   return updateObject(state, {
-    isOpen: false
+    isOpen: false,
+    event: {}
   });
 }
 
-const initialEventDetailsState = { isOpen: false };
+const initialEventDetailsState = { isOpen: false, event: {} };
 
 const eventDetailsReducer = createReducer(initialEventDetailsState, {
   [OPEN_EVENTDETAILS]: openEventDetails,

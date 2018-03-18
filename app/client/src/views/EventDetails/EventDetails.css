@@ -1,0 +1,15 @@
+.Title {
+  font-size: 20pt;
+  background: black;
+  color: white;
+}
+
+.Properties {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+}
+
+.Actions {
+  text-align: right
+}
