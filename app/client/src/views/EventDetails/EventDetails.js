@@ -11,8 +11,19 @@ const Tag = props => (
 
 class EventDetails extends Component {
   render() {
+    const customStyles = {
+      content : {
+        top                   : '50%',
+        left                  : '50%',
+        right                 : 'auto',
+        bottom                : 'auto',
+        marginRight           : '-50%',
+        transform             : 'translate(-50%, -50%)'
+      }
+    };
+
     return (
-      <Modal isOpen={this.props.isOpen}>
+      <Modal isOpen={this.props.isOpen} style={customStyles}>
         <div className="Title">
           <span>Event-Details</span>
         </div>
