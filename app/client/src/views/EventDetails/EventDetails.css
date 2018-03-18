@@ -1,4 +1,4 @@
-.Title {
+.Header {
   font-size: 20pt;
   background: black;
   color: white;
@@ -16,6 +16,15 @@
 
 .Actions {
   text-align: right
+}
+
+.Title {
+  font-weight: bold;
+}
+
+.Description {
+  max-width: 80vw;
+  white-space: pre-wrap;
 }
 
 .Tags > span {

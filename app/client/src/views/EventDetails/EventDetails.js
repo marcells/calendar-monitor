@@ -18,30 +18,30 @@ class EventDetails extends Component {
   render() {
     const customStyles = {
       content : {
-        top                   : '50%',
-        left                  : '50%',
-        right                 : 'auto',
-        bottom                : 'auto',
-        marginRight           : '-50%',
-        transform             : 'translate(-50%, -50%)'
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
       }
     };
 
     return (
       <Modal isOpen={this.props.isOpen} style={customStyles}>
-        <div className="Title">
+        <div className="Header">
           <span>Event-Details</span>
         </div>
 
         <div className="Properties">
           <span><FontAwesomeIcon icon={faCalendarAlt} /></span>
-          <span>{this.props.event.title}</span>
+          <span className="Title">{this.props.event.title}</span>
 
           <span><FontAwesomeIcon icon={faClock} /></span>
           <span>{moment(this.props.event.from).format('L LT')} - {moment(this.props.event.to).format('L LT')}</span>
 
           <span><FontAwesomeIcon icon={faAlignJustify} /></span>
-          <div>{this.props.event.description}</div>
+          <div className="Description">{this.props.event.description}</div>
 
           <span><FontAwesomeIcon icon={faTags} /></span>
           <div className="Tags">{this.props.event.tags.map(x => <Tag key={x.name} data={x} />)}</div>
