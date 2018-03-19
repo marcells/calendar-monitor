@@ -39,7 +39,7 @@ class EventDetails extends Component {
           <span className="EventDetails-Title">{this.props.event.title}</span>
 
           <span><FontAwesomeIcon icon={faClock} /></span>
-          <span>{moment(this.props.event.from).format('L LT')} - {moment(this.props.event.to).format('L LT')}</span>
+          <span>{moment(this.props.event.from).format('LLLL')} - {moment(this.props.event.to).format('LT')}</span>
 
           <span><FontAwesomeIcon icon={faMapMarkerAlt} /></span>
           <a className="EventDetails-Location" href={`https://maps.google.com?q=${encodeURIComponent(this.props.event.location)}`} target="blank">{this.props.event.location}</a>
