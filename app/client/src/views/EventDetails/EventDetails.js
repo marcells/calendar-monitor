@@ -15,7 +15,35 @@ const Tag = props => (
   <span style={ { backgroundColor: props.data.properties.backgroundColor, color: props.data.properties.foregroundColor } }>{props.data.name}</span>
 );
 
+
 class EventDetails extends Component {
+  _renderDescription() {
+    return (
+      <React.Fragment>
+        <span><FontAwesomeIcon icon={faAlignJustify} /></span>
+        <div className="EventDetails-Description">{this.props.event.description}</div>
+      </ React.Fragment>
+    );
+  }
+
+  _renderTags() {
+    return (
+      <React.Fragment>
+        <span><FontAwesomeIcon icon={faTags} /></span>
+        <div className="EventDetails-Tags">{this.props.event.tags.map(x => <Tag key={x.name} data={x} />)}</div>
+      </ React.Fragment>
+    );
+  }
+
+  _renderLocation() {
+    return (
+      <React.Fragment>
+        <span><FontAwesomeIcon icon={faMapMarkerAlt} /></span>
+        <a className="EventDetails-Location" href={`https://maps.google.com?q=${encodeURIComponent(this.props.event.location)}`} target="blank">{this.props.event.location}</a>
+      </React.Fragment>
+    );
+  }
+
   render() {
     const customStyles = {
       content : {
@@ -41,19 +69,16 @@ class EventDetails extends Component {
           <span><FontAwesomeIcon icon={faClock} /></span>
           <span>{moment(this.props.event.from).format('LLLL')} - {moment(this.props.event.to).format('LT')}</span>
 
-          <span><FontAwesomeIcon icon={faMapMarkerAlt} /></span>
-          <a className="EventDetails-Location" href={`https://maps.google.com?q=${encodeURIComponent(this.props.event.location)}`} target="blank">{this.props.event.location}</a>
+          { this.props.event.location ? this._renderLocation() : null }
+          { this.props.event.description ? this._renderDescription() : null }
+          { this.props.event.tags ? this._renderTags() : null }
 
-          <span><FontAwesomeIcon icon={faAlignJustify} /></span>
-          <div className="EventDetails-Description">{this.props.event.description}</div>
-
-          <span><FontAwesomeIcon icon={faTags} /></span>
-          <div className="EventDetails-Tags">{this.props.event.tags.map(x => <Tag key={x.name} data={x} />)}</div>
         </div>
 
         <div className="EventDetails-Actions">
           <button onClick={() => this.props.dispatch(closeEventDetails()) }>Close</button>
         </div>
+
       </Modal>
     );
   }
