@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
+import Linkify from 'react-linkify';
 import moment from 'moment';
 import { closeEventDetails } from '../../redux/actions';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
@@ -21,7 +22,7 @@ class EventDetails extends Component {
     return (
       <React.Fragment>
         <span><FontAwesomeIcon icon={faAlignJustify} /></span>
-        <div className="EventDetails-Description">{this.props.event.description}</div>
+        <Linkify className="EventDetails-Description" properties={{ target: '_blank' }}>{this.props.event.description}</Linkify>
       </ React.Fragment>
     );
   }
