@@ -7,7 +7,7 @@ exports[`CalendarApp has calendars should render calendar items correctly 1`] = 
   <div
     className="Calendars"
   >
-    <Calendar
+    <Connect(Calendar)
       calendar={
         Object {
           "date": Object {
@@ -17,7 +17,7 @@ exports[`CalendarApp has calendars should render calendar items correctly 1`] = 
         }
       }
     />
-    <Calendar
+    <Connect(Calendar)
       calendar={
         Object {
           "date": Object {
@@ -28,7 +28,7 @@ exports[`CalendarApp has calendars should render calendar items correctly 1`] = 
       }
     />
   </div>
-  <Upcoming
+  <Connect(Upcoming)
     events={
       Array [
         Object {
@@ -38,6 +38,7 @@ exports[`CalendarApp has calendars should render calendar items correctly 1`] = 
       ]
     }
   />
+  <Connect(EventDetails) />
 </div>
 `;
 
@@ -50,8 +51,9 @@ exports[`CalendarApp has no calendars should render calendar items correctly 1`]
   >
     
   </div>
-  <Upcoming
+  <Connect(Upcoming)
     events={Array []}
   />
+  <Connect(EventDetails) />
 </div>
 `;

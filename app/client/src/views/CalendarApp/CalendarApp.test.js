@@ -75,8 +75,9 @@ describe('CalendarApp', () => {
       const mockedDispatch = jest.fn();
       const wrapper = shallow(<CalendarApp.WrappedComponent dispatch={mockedDispatch} calendarId="test" calendars={[]} upcoming={[]} />);
 
-      expect(wrapper.find('Calendar')).toHaveLength(0);
-      expect(wrapper.find('Upcoming')).toHaveLength(1);
+      expect(wrapper.find('Connect(Calendar)')).toHaveLength(0);
+      expect(wrapper.find('Connect(Upcoming)')).toHaveLength(1);
+      expect(wrapper.find('Connect(EventDetails)')).toHaveLength(1);
     });
   });
 });

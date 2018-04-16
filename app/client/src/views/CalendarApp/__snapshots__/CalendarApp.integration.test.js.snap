@@ -65,6 +65,7 @@ exports[`CalendarApp integration should render the calendars correctly 1`] = `
           >
             <div
               className="Calendar-day-event"
+              onClick={[Function]}
             >
               <span
                 className="Calendar-day-event-from"
@@ -301,6 +302,7 @@ exports[`CalendarApp integration should render the calendars correctly 1`] = `
           >
             <div
               className="Calendar-day-event"
+              onClick={[Function]}
             >
               <span
                 className="Calendar-day-event-from"
@@ -908,6 +910,7 @@ exports[`CalendarApp integration should render the calendars correctly 1`] = `
     <div>
       <div
         className="Upcoming-event"
+        onClick={[Function]}
       >
         <div
           className="Upcoming-event-title"
@@ -922,6 +925,7 @@ exports[`CalendarApp integration should render the calendars correctly 1`] = `
       </div>
       <div
         className="Upcoming-event"
+        onClick={[Function]}
       >
         <div
           className="Upcoming-event-title"

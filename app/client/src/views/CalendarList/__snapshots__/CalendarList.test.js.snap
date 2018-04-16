@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CalendarList has items should render calendar items correctly 1`] = `
-<ul>
+<ul
+  className="CalendarList"
+>
   <li>
     <Link
       replace={false}
@@ -22,7 +24,9 @@ exports[`CalendarList has items should render calendar items correctly 1`] = `
 `;
 
 exports[`CalendarList has no items should render calendar items correctly 1`] = `
-<ul>
+<ul
+  className="CalendarList"
+>
   
 </ul>
 `;

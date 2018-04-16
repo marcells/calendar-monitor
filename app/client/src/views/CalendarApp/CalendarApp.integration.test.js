@@ -60,12 +60,17 @@ describe('CalendarApp', () => {
             from: new Date(2017, 0, 18, 7, 0, 0),
             to: new Date(2017, 0, 18, 10, 0, 0)
           }]
+        },
+        eventDetails: {
+          event: { tags: [] }
         }
       });
 
+      const mockedDispatch = jest.fn();
+
       const result = renderer.create(
         <Provider store={store}>
-          <CalendarApp calendar='calendar1' />
+          <CalendarApp calendar='calendar1' dispatch={mockedDispatch} />
         </Provider>
       );
 
