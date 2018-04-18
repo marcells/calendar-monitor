@@ -1,5 +1,6 @@
 const express = require('express');
 const moment = require('moment');
+const iCal = require('./iCal');
 
 function create(configuration, crawlers) {
   const router = express.Router();
@@ -57,6 +58,10 @@ function create(configuration, crawlers) {
     const event = crawlers.getEventById(req.params.id);
 
     res.send(!event ? 404 : event);
+  });
+
+  router.get('/iCal/:calendar', (req, res, next) => {
+    iCal.serve(res, crawlers, req.params.calendar);
   });
 
   return router;
