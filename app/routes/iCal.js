@@ -10,17 +10,15 @@ function create(crawlers, calendar) {
     const vevent = new iCal.Component('vevent');
     const iCalEvent = new iCal.Event(vevent);
 
-    iCalEvent.uid = event.id;
-    iCalEvent.summary = event.title;
-    iCalEvent.description = event.description;
-    iCalEvent.location = event.location;
-    iCalEvent.startDate = iCal.Time.fromJSDate(event.from);
-    iCalEvent.endDate = iCal.Time.fromJSDate(event.to);
+    if (event.id) iCalEvent.uid = event.id;
+    if (event.title) iCalEvent.summary = event.title;
+    if (event.description) iCalEvent.description = event.description;
+    if (event.location) iCalEvent.location = event.location;
+    if (event.from) iCalEvent.startDate = iCal.Time.fromJSDate(event.from);
+    if (event.to) iCalEvent.endDate = iCal.Time.fromJSDate(event.to);
 
     component.addSubcomponent(vevent);
   }
-
-  console.log(component.toString());
 
   return component.toString();
 }
